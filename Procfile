@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar build/libs/hitrate-report-1.war
+web: java -jar build/server/webapp-runner-*.jar build/libs/*.war
