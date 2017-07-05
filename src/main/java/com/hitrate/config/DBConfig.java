@@ -28,9 +28,9 @@ public class DBConfig {
 	@Bean
 	public DataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/hitratereport");
-		dataSource.setUsername("root");
+		dataSource.setDriverClassName("org.postgresql.Driver");
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/hitratereport");
+		dataSource.setUsername("mandyyan");
 		dataSource.setPassword("");
 		return dataSource;
 	}
