@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar hitrate-report.jar
+web: java $JAVA_OPTS -jar hitrate-report.war
