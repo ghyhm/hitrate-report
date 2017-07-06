@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dserver.port=$PORT -jar build/server/webapp-runner-*.jar build/libs/*.war
+web: java -Xmx700m -Xss1024k -Dfile.encoding=UTF-8 -Dserver.port=$PORT -jar build/server/webapp-runner-*.jar build/libs/*.war
