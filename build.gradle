@@ -26,7 +26,6 @@ dependencies {
     compile 'com.github.jsimone:webapp-runner:8.5.15.1'
     compile 'org.postgresql:postgresql:42.1.1.jre7'
     compile 'org.flywaydb:flyway-gradle-plugin:4.2.0'
-    compile 'org.flywaydb:flyway-core:4.2.0'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat:1.5.4.RELEASE'    
 }
 
