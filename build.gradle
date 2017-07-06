@@ -3,7 +3,7 @@ buildscript {
 	    mavenCentral()
 	}
     dependencies {
-        classpath 'org.postgresql:postgresql:42.1.1.jre7'
+	    classpath 'mysql:mysql-connector-java:5.1.31'
     }
 }
 plugins {
@@ -24,7 +24,7 @@ dependencies {
     compile 'commons-dbcp:commons-dbcp:1.4'
     compile 'commons-pool:commons-pool:1.6'
     compile 'com.github.jsimone:webapp-runner:8.5.15.1'
-    compile 'org.postgresql:postgresql:42.1.1.jre7'
+    compile 'mysql:mysql-connector-java:5.1.31'
     compile 'org.flywaydb:flyway-gradle-plugin:4.2.0'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat:1.5.4.RELEASE'    
 }
@@ -44,7 +44,7 @@ task copyToLib(type: Copy) {
 stage.dependsOn(copyToLib)
 
 flyway {
-    url = 'jdbc:postgresql://localhost:5432/hitratereport'
-    user = 'mandyyan'
+    url = 'jdbc:mysql://localhost:3306/hitratereport'
+    user = 'root'
     password = ''
 }
