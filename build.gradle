@@ -18,11 +18,12 @@ repositories {
     mavenCentral()
 }
 dependencies {
-	compile 'org.springframework.boot:spring-boot-starter-web:1.5.4.RELEASE'
-    compile 'org.springframework.boot:spring-boot-starter-data-jpa:1.5.4.RELEASE'
+	provided 'org.springframework.boot:spring-boot-starter-web:1.5.4.RELEASE'
+    provided 'org.springframework.boot:spring-boot-starter-data-jpa:1.5.4.RELEASE'
     compile 'org.hibernate:hibernate-core:5.2.10.Final'
     compile 'commons-dbcp:commons-dbcp:1.4'
     compile 'commons-pool:commons-pool:1.6'
+    compile 'com.github.jsimone:webapp-runner:8.5.15.1'
     compile 'mysql:mysql-connector-java:5.1.31'
     compile 'org.flywaydb:flyway-gradle-plugin:4.2.0'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat:1.5.4.RELEASE'    
@@ -35,6 +36,9 @@ war.mustRunAfter clean
 
 task copyToLib(type: Copy) {
     into "$buildDir/server"
+    from(configurations.compile) {
+        include "webapp-runner*"
+    }
 }
 
 stage.dependsOn(copyToLib)
