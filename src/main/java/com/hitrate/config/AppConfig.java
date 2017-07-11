@@ -43,6 +43,9 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	     
 	    // get active profile
 	    activeProfile = System.getProperty("spring.profiles.active");
+	    if (activeProfile.isEmpty()) {
+	    	activeProfile = "prd";
+	    }
 	 
 	    // choose different property files for different active profile
 	    resource = new ClassPathResource("/properties/application-" + activeProfile + ".properties");
