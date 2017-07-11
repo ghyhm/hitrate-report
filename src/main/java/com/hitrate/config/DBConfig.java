@@ -3,6 +3,7 @@ package com.hitrate.config;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTemplate;
@@ -15,6 +16,11 @@ import com.hitrate.entity.Hitrate;
 @Configuration
 @EnableTransactionManagement
 public class DBConfig {
+	@Value("${db.driver}") String dbDriver;
+	@Value("${db.url}") String dbUrl;
+	@Value("${db.username}") String dbUsername;
+	@Value("${db.password}") String dbPassword;
+	  
 	@Bean
 	public HibernateTemplate hibernateTemplate() {
 		return new HibernateTemplate(sessionFactory());
@@ -28,13 +34,13 @@ public class DBConfig {
 	@Bean
 	public DataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-//		dataSource.setUrl("jdbc:mysql://localhost:3306/hitratereport");
-//		dataSource.setUsername("root");
-//		dataSource.setPassword("");
-		dataSource.setUrl("jdbc:mysql://us-cdbr-iron-east-03.cleardb.net/heroku_5f297a3ec8aa0c9");
-		dataSource.setUsername("b1c67d63499810");
-		dataSource.setPassword("5ce77e92");
+		dataSource.setDriverClassName(dbDriver);
+		dataSource.setUrl(dbUrl);
+		dataSource.setUsername(dbUsername);
+		dataSource.setPassword(dbPassword);
+//		dataSource.setUrl("jdbc:mysql://us-cdbr-iron-east-03.cleardb.net/heroku_5f297a3ec8aa0c9");
+//		dataSource.setUsername("b1c67d63499810");
+//		dataSource.setPassword("5ce77e92");
 //		dataSource.setDriverClassName("org.postgresql.Driver");
 //		dataSource.setUrl("jdbc:postgresql://localhost:5432/hitratereport");
 //		dataSource.setUsername("mandyyan");

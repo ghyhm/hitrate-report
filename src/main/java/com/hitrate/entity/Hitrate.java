@@ -18,6 +18,12 @@ public class Hitrate implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private int id;
+	@Column(name = "visit_date")
+	private Date visitDate;
+	@Column(name = "website")
+	private String website;
+	@Column(name = "visits")
+	private int visits;
 
 	public int getId() {
 		return id;
@@ -25,14 +31,6 @@ public class Hitrate implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public Date getVisit_date() {
-		return visit_date;
-	}
-
-	public void setVisit_date(Date visit_date) {
-		this.visit_date = visit_date;
 	}
 
 	public String getWebsite() {
@@ -51,10 +49,11 @@ public class Hitrate implements Serializable {
 		this.visits = visits;
 	}
 
-	@Column(name = "visit_date")
-	private Date visit_date;
-	@Column(name = "website")
-	private String website;
-	@Column(name = "visits")
-	private int visits;
+	public Date getVisitDate() {
+		return visitDate;
+	}
+
+	public void setVisitDate(Date visitDate) {
+		this.visitDate = visitDate;
+	}
 }

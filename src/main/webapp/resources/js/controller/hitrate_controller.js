@@ -3,12 +3,14 @@
 app.controller('HitrateController', [ '$scope', '$routeParams', '$window', '$location', 'HitrateService', function($scope, $routeParams, $window, $location, HitrateService) {
 	var self = this;
 	self.hitrate = {
-		pid : null,
-		name : '',
-		location : ''
+		id : null,
+		visitDate : '',
+		website : '',
+		visits: null
 	};
 	self.hitrates = [];
-	self.submit = submit;
+	self.searchHitrates = searchHitrates;
+//	self.submit = submit;
 //	self.edit = edit;
 //	self.deleteWine = deleteWine;
 //	self.reset = reset;
@@ -18,13 +20,14 @@ app.controller('HitrateController', [ '$scope', '$routeParams', '$window', '$loc
 //	} else {
 //		fetchAllWines();
 //	}
-	fetchAllHitrates();
-
-	function fetchAllHitrates() {
-		HitrateService.fetchAllHitrates()
+	
+	function searchHitrates(hitrate) {
+		console.log(hitrate);
+		HitrateService.searchHitrates(hitrate)
 			.then(
 				function(d) {
 					self.hitrates = d;
+					console.log(self.hitrates);
 				},
 				function(errResponse) {
 					console.error('Error while fetching Hitrates');

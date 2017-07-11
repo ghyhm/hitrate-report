@@ -1,13 +1,20 @@
 package com.hitrate.config;
 
+import org.springframework.core.io.Resource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import com.hitrate.interceptor.AuthenticationInterceptor;
 
 @Configuration
 @ComponentScan("com.hitrate")
@@ -22,8 +29,37 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 		return resolver;
 	}
 
+	@Bean
+	AuthenticationInterceptor authenticationInterceptor() {
+         return new AuthenticationInterceptor();
+    }
+	
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer propertyConfigurer() {
+	    Resource resource;
+	    String activeProfile;
+	     
+	    PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer =  new PropertySourcesPlaceholderConfigurer();
+	     
+	    // get active profile
+	    activeProfile = System.getProperty("spring.profiles.active");
+	 
+	    // choose different property files for different active profile
+	    resource = new ClassPathResource("/properties/application-" + activeProfile + ".properties");
+	     
+	    // load the property file
+	    propertySourcesPlaceholderConfigurer.setLocation(resource);
+	     
+	    return propertySourcesPlaceholderConfigurer;
+	}
+	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/app-resources/**").addResourceLocations("/resources/");
 	}
+	
+	@Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(authenticationInterceptor()).excludePathPatterns("/login*");
+    }
 }

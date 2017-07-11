@@ -1,5 +1,6 @@
 package com.hitrate.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,11 @@ public class HitrateService implements IHitrateService {
 	@Override
 	public List<Hitrate> getAllHitrates() {
 		return hitrateDAO.getAllHitrates();
+	}
+
+	@Override
+	public List<Hitrate> searchHitrates(String visitDate) throws Exception {
+		return hitrateDAO.searchHitrates(visitDate);
 	}
 
 //	@Override

@@ -1,10 +1,10 @@
 'use strict';
 
 app.factory('HitrateService', [ '$http', '$q', function($http, $q) {
-	var REST_SERVICE_URI = 'http://localhost:8080/hitrate-report/hitrate/';
+	var REST_SERVICE_URI = 'http://localhost:8080/hitrate-report/search/';
 
 	var factory = {
-		fetchAllHitrates : fetchAllHitrates
+		searchHitrates : searchHitrates
 //		getWine : getWine,
 //		createWine : createWine,
 //		updateWine : updateWine,
@@ -13,9 +13,14 @@ app.factory('HitrateService', [ '$http', '$q', function($http, $q) {
 
 	return factory;
 
-	function fetchAllHitrates() {
+	function searchHitrates(hitrate) {
 		var deferred = $q.defer();
-		$http.get(REST_SERVICE_URI)
+		var visitDate = null;
+		if (hitrate) {
+			visitDate = hitrate.visitDate;
+		}
+		if (visitDate) {
+			$http.get(REST_SERVICE_URI, {params: {visitDate: visitDate}})
 			.then(
 				function(response) {
 					deferred.resolve(response.data);
@@ -24,7 +29,8 @@ app.factory('HitrateService', [ '$http', '$q', function($http, $q) {
 					console.error('Error while fetching Hitrates');
 					deferred.reject(errResponse);
 				}
-		);
+			);
+		}
 		return deferred.promise;
 	}
 

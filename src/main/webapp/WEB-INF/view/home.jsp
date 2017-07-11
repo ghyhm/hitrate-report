@@ -5,10 +5,8 @@
 <title>Hitrate Catalog</title>
 </head>
 <body ng-app="myApp">
-	<a href="#!list">List</a>
-	<a href="#!add_hitrate">Add Hitrate</a>
 	<div ng-controller="HitrateController as hitrateCtrl">
-		<h1 class="page-header">Hitrate Catalog</h1>
+		<h1 class="page-header">Hit Rate Report</h1>
 		<form name="hitrateForm">
 			<div ng-view></div>
 		</form>
@@ -22,8 +20,6 @@
 		src="${pageContext.request.contextPath}/app-resources/js/lib/angular-aria.min.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/app-resources/js/lib/angular-route.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/app-resources/js/lib/sb-admin-2.min.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/app-resources/js/app.js"></script>
 	<script

@@ -1,5 +1,6 @@
 package com.hitrate.controller;
 
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.hitrate.entity.Hitrate;
@@ -31,9 +33,15 @@ public class HitrateController {
 //		return new ResponseEntity<Hitrate>(hitrate, HttpStatus.OK);
 //	}
 //
-	@RequestMapping(value = "/hitrate-report", method = RequestMethod.GET)
+	@RequestMapping(value = "/hitrate", method = RequestMethod.GET)
 	public ResponseEntity<List<Hitrate>> getAllHitrates() {
 		List<Hitrate> list = hitrateService.getAllHitrates();
+		return new ResponseEntity<List<Hitrate>>(list, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public ResponseEntity<List<Hitrate>> searchHitrates(@RequestParam("visitDate") String visitDate) throws Exception {
+		List<Hitrate> list = hitrateService.searchHitrates(visitDate);
 		return new ResponseEntity<List<Hitrate>>(list, HttpStatus.OK);
 	}
 
@@ -60,9 +68,9 @@ public class HitrateController {
 //		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 //	}
 
-	@RequestMapping("/templates/wine-list")
-	public String wineList() {
-		return "templates/wine-list";
+	@RequestMapping("/templates/hitrate-list")
+	public String hitrateList() {
+		return "templates/hitrate-list";
 	}
 
 //	@RequestMapping("/templates/wine-details")

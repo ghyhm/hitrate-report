@@ -1,10 +1,16 @@
 package com.hitrate.dao;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -25,6 +31,16 @@ public class HitrateDAO implements IHitrateDAO {
 	@Override
 	public List<Hitrate> getAllHitrates() {
 		String hql = "FROM Hitrate as p ORDER BY p.id";
+		return (List<Hitrate>) hibernateTemplate.find(hql);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Hitrate> searchHitrates(String visitDate) throws Exception {
+//		String hql = "FROM Hitrate as p where p.visitDate = :visitDate ORDER BY p.id";
+//		DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd", Locale.ENGLISH);
+//		return (List<Hitrate>) hibernateTemplate.findByNamedParam(hql, "visitDate", dateFormat.parse(visitDate));
+		String hql = "FROM Hitrate as p WHERE p.visitDate = '" + visitDate + "' ORDER BY p.id";
 		return (List<Hitrate>) hibernateTemplate.find(hql);
 	}
 

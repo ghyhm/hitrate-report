@@ -6,6 +6,9 @@ var app = angular.module('myApp', [ 'ngRoute' ])
 			templateUrl : "templates/hitrate-list",
 			controller : "HitrateController"
 		})
+		.when("/loginForm", {
+			controller: "LoginController as loginCtrl"
+		})
 //		.when("/add_wine", {
 //			templateUrl : "templates/wine-details",
 //			controller : "WineController"
