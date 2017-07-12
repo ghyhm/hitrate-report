@@ -43,7 +43,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	     
 	    // get active profile
 	    activeProfile = System.getProperty("spring.profiles.active");
-	    if (activeProfile.isEmpty()) {
+	    if (activeProfile == null) {
 	    	activeProfile = "prd";
 	    }
 	 

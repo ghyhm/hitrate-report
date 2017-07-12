@@ -1,7 +1,7 @@
 'use strict';
 
 app.factory('HitrateService', [ '$http', '$q', function($http, $q) {
-	var REST_SERVICE_URI = 'http://localhost:8080/hitrate-report/search/';
+	var REST_SERVICE_URI = 'search';
 
 	var factory = {
 		searchHitrates : searchHitrates
