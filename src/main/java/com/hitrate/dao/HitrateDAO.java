@@ -40,7 +40,8 @@ public class HitrateDAO implements IHitrateDAO {
 //		String hql = "FROM Hitrate as p where p.visitDate = :visitDate ORDER BY p.id";
 //		DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd", Locale.ENGLISH);
 //		return (List<Hitrate>) hibernateTemplate.findByNamedParam(hql, "visitDate", dateFormat.parse(visitDate));
-		String hql = "FROM Hitrate as p WHERE p.visitDate = '" + visitDate + "' ORDER BY p.id";
+		String hql = "FROM Hitrate as p WHERE p.visitDate = '" + visitDate + "' ORDER BY p.visits desc";
+		hibernateTemplate.setMaxResults(5);
 		return (List<Hitrate>) hibernateTemplate.find(hql);
 	}
 
