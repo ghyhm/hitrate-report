@@ -16,7 +16,7 @@
 
 <code>heroku war:deploy build/libs/hitrate-report-1.war --app marvelous-kings-canyon-80793</code>
 
-## Application URL
+## Application on Heroku
 <a href="https://marvelous-kings-canyon-80793.herokuapp.com/hitrate-report">Hit Rate Report</a>
 
 ## Checkstyle for code analysis
