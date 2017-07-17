@@ -61,3 +61,8 @@ A better way is to use <a href="https://jqueryui.com/datepicker/" target="_blank
 We can add search on website to know when a particular website have high hit rates.
 
 Currently it is fixed to those top 5. We can make it dynamic for user to choose showing top 5 or top 10 for example.
+
+3. Cucumber Test
+
+The way for writting cucumber tests is shown in the feature file hitrate-report/src/test/resources/searchHitrate.feature.
+However, the actual implementation for each test steps are not done yet.
