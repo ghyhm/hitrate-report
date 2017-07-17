@@ -1,4 +1,4 @@
-<input type="text" name="visitDate" ng-model="hitrateCtrl.hitrate.visitDate" />
+<input type="text" name="visitDate" ng-model="hitrateCtrl.hitrate.visitDate" /> (YYYY-MM-DD)
 <input type="submit" ng-click="hitrateCtrl.searchHitrates(hitrateCtrl.hitrate)" value="Search" />
 <table>
 	<tr>
@@ -12,10 +12,5 @@
 		<td><span ng-bind="row.visitDate | date: 'yyyy-MM-dd'"></span></td>
 		<td><span ng-bind="row.website"></span></td>
 		<td><span ng-bind="row.visits"></span></td>
-<!-- 		<td><input type="button" ng-click="hitrateCtrl.deleteHitrate(row.pid)" -->
-<!-- 			value="Delete" /> <input type="button" -->
-<!-- 			ng-click="hitrateCtrl.editHitrate(row.pid)" value="Edit" /> <span -->
-<!-- 			ng-if="hitrateCtrl.flag=='updated' && row.pid==hitrateCtrl.updatedId" -->
-<!-- 			class="msg-success">Hitrate successfully updated.</span></td> -->
 	</tr>
 </table>
