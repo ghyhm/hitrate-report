@@ -4,6 +4,6 @@ import com.hitrate.entity.User;
 
 public interface ILoginService {
 
-	public void login(User user);
+	void login(User user);
 
 }

@@ -21,15 +21,16 @@ public class LoginController {
 	private ILoginService loginService;
 
 	@RequestMapping(method = RequestMethod.GET)
-    public String loginForm() {
-        return "login";
-    }
-	
+	public String loginForm() {
+		return "login";
+	}
+
 	@RequestMapping(method = RequestMethod.POST)
-    public void login(@RequestParam("name") String name, @RequestParam("password") String password, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void login(@RequestParam("name") String name, @RequestParam("password") String password,
+			HttpServletRequest request, HttpServletResponse response) throws IOException {
 		User user = new User(name, password);
 		loginService.login(user);
 		request.getSession().setAttribute("CURRENT_USER", user);
 		response.sendRedirect("/hitrate-report/#!list");
-    }
+	}
 }

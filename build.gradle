@@ -10,6 +10,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'war'
+apply plugin: 'checkstyle'
 archivesBaseName = 'hitrate-report'
 version = '1' 
 repositories {
@@ -25,6 +26,10 @@ dependencies {
     compile 'com.github.jsimone:webapp-runner:8.5.15.1'
     compile 'mysql:mysql-connector-java:5.1.31'
     compile 'org.flywaydb:flyway-gradle-plugin:4.2.0'
+    testCompile 'info.cukes:cucumber-java:1.2.5'
+    testCompile 'info.cukes:cucumber-junit:1.2.5'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.seleniumhq.selenium:selenium-java:3.4.0'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat:1.5.4.RELEASE'    
 }
 
@@ -41,3 +46,20 @@ task copyToLib(type: Copy) {
 }
 
 stage.dependsOn(copyToLib)
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testRuntime
+    }
+}
+
+task cucumber() {
+    dependsOn assemble, compileTestJava
+    doLast {
+        javaexec {
+            main = "cucumber.api.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty', '--glue', 'gradle.cucumber', 'src/test/resources']
+        }
+    }
+}

@@ -32,31 +32,31 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
 	AuthenticationInterceptor authenticationInterceptor() {
-         return new AuthenticationInterceptor();
-    }
-	
+		return new AuthenticationInterceptor();
+	}
+
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer propertyConfigurer() {
-	    Resource resource;
-	    String activeProfile;
-	     
-	    PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer =  new PropertySourcesPlaceholderConfigurer();
-	     
-	    // get active profile
-	    activeProfile = System.getProperty("spring.profiles.active");
-	    if (activeProfile == null) {
-	    	activeProfile = "prd";
-	    }
-	 
-	    // choose different property files for different active profile
-	    resource = new ClassPathResource("/properties/application-" + activeProfile + ".properties");
-	     
-	    // load the property file
-	    propertySourcesPlaceholderConfigurer.setLocation(resource);
-	     
-	    return propertySourcesPlaceholderConfigurer;
+		Resource resource;
+		String activeProfile;
+
+		PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
+
+		// get active profile
+		activeProfile = System.getProperty("spring.profiles.active");
+		if (activeProfile == null) {
+			activeProfile = "prd";
+		}
+
+		// choose different property files for different active profile
+		resource = new ClassPathResource("/properties/application-" + activeProfile + ".properties");
+
+		// load the property file
+		propertySourcesPlaceholderConfigurer.setLocation(resource);
+
+		return propertySourcesPlaceholderConfigurer;
 	}
-	
+
 	@Bean
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
@@ -66,9 +66,9 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/app-resources/**").addResourceLocations("/resources/");
 	}
-	
+
 	@Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(authenticationInterceptor()).excludePathPatterns("/login*");
-    }
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(authenticationInterceptor()).excludePathPatterns("/login*");
+	}
 }

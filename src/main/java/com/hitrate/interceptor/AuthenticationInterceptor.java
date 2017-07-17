@@ -9,13 +9,14 @@ import com.hitrate.entity.User;
 
 public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 	@Override
-	public boolean preHandle(HttpServletRequest request,HttpServletResponse response, Object handler) throws Exception {
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
 		System.out.println("AuthenticationInterceptor");
 		User user = (User) request.getSession().getAttribute("CURRENT_USER");
-		if(user == null) {
+		if (user == null) {
 			response.sendRedirect("/hitrate-report/login");
-		    return false;
-		}   
+			return false;
+		}
 		return true;
 	}
 }

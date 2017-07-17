@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.19">
+<file name="/Users/mandyyan/Documents/Projects/Eclipse/hitrate-report/src/main/java/com/hitrate/config/AppConfig.java">
+</file>
+<file name="/Users/mandyyan/Documents/Projects/Eclipse/hitrate-report/src/main/java/com/hitrate/config/DBConfig.java">
+</file>
+<file name="/Users/mandyyan/Documents/Projects/Eclipse/hitrate-report/src/main/java/com/hitrate/config/WebAppInitializer.java">
+</file>
+<file name="/Users/mandyyan/Documents/Projects/Eclipse/hitrate-report/src/main/java/com/hitrate/controller/HitrateController.java">
+</file>
+<file name="/Users/mandyyan/Documents/Projects/Eclipse/hitrate-report/src/main/java/com/hitrate/controller/LoginController.java">
+</file>
+<file name="/Users/mandyyan/Documents/Projects/Eclipse/hitrate-report/src/main/java/com/hitrate/dao/HitrateDAO.java">
+</file>
+<file name="/Users/mandyyan/Documents/Projects/Eclipse/hitrate-report/src/main/java/com/hitrate/dao/IHitrateDAO.java">
+</file>
+<file name="/Users/mandyyan/Documents/Projects/Eclipse/hitrate-report/src/main/java/com/hitrate/entity/Exclusion.java">
+</file>
+<file name="/Users/mandyyan/Documents/Projects/Eclipse/hitrate-report/src/main/java/com/hitrate/entity/Hitrate.java">
+</file>
+<file name="/Users/mandyyan/Documents/Projects/Eclipse/hitrate-report/src/main/java/com/hitrate/entity/User.java">
+</file>
+<file name="/Users/mandyyan/Documents/Projects/Eclipse/hitrate-report/src/main/java/com/hitrate/interceptor/AuthenticationInterceptor.java">
+</file>
+<file name="/Users/mandyyan/Documents/Projects/Eclipse/hitrate-report/src/main/java/com/hitrate/service/HitrateService.java">
+</file>
+<file name="/Users/mandyyan/Documents/Projects/Eclipse/hitrate-report/src/main/java/com/hitrate/service/IHitrateService.java">
+</file>
+<file name="/Users/mandyyan/Documents/Projects/Eclipse/hitrate-report/src/main/java/com/hitrate/service/ILoginService.java">
+</file>
+<file name="/Users/mandyyan/Documents/Projects/Eclipse/hitrate-report/src/main/java/com/hitrate/service/LoginService.java">
+</file>
+</checkstyle>
