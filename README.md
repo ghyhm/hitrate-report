@@ -22,5 +22,16 @@
 ## Checkstyle for code analysis
 Checkstyle is used for static code analysis. This is to check coding standard.
 
+<code>gradle check</code>
+
 ## Cucumber for BDD
 Cucumber is setup for BDD.
+
+<code>gradle cucumber</code>
+
+## Integration with Circle CI
+The project is integrated with Circle CI. Any check-in to github will run circle ci automatically.
+
+We can define the task to run in circle CI, like running all cucumber tests or even add the command to deploy to Heroku.
+
+<a href="https://circleci.com/gh/ghyhm/hitrate-report">Hit Rate Report Circle CI</a>
