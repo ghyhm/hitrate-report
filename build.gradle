@@ -33,25 +33,16 @@ dependencies {
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat:1.5.4.RELEASE'    
 }
 
-task stage() {
-    dependsOn clean, war
-}
-war.mustRunAfter clean
-
-task copyToLib(type: Copy) {
-    into "$buildDir/server"
-    from(configurations.compile) {
-        include "webapp-runner*"
-    }
-}
-
-stage.dependsOn(copyToLib)
-
 configurations {
     cucumberRuntime {
         extendsFrom testRuntime
     }
 }
+
+task stage() {
+    dependsOn clean, check, war
+}
+war.mustRunAfter clean
 
 task cucumber() {
     dependsOn assemble, compileTestJava
@@ -63,3 +54,13 @@ task cucumber() {
         }
     }
 }
+
+task copyToLib(type: Copy) {
+    into "$buildDir/server"
+    from(configurations.compile) {
+        include "webapp-runner*"
+    }
+}
+
+copyToLib.dependsOn(cucumber)
+stage.dependsOn(copyToLib)
