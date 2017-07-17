@@ -10,7 +10,7 @@
 
 3. Set Heroku context root
 
-<code>heroku config:set WEBAPP_RUNNER_OPTS="--path hitrate-report”</code>
+<code>heroku config:set WEBAPP_RUNNER_OPTS="--path /hitrate-report"</code>
 
 4. Deploy to Heroku (My heroku server is marvelous-kings-canyon-80793. You can change to your own.) 
 
