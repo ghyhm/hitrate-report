@@ -72,7 +72,18 @@ Checkstyle is used for static code analysis. This is to check coding standard.
 ## Cucumber for BDD
 Cucumber is setup for BDD.
 
+Features are defined in src/test/resources.
+
+Run below command to executer the features.
+
 <code>gradle cucumber</code>
+
+Note: 
+
+1. Actual implemention on test step is not done yet. We need to first set up a test database which will run the same database 
+migration scripts. The test database will be setup before tests start and will be torn down after running the tests.
+
+2. Since exclusion list is from an external API, we need to mock the exclusion list API when running the test.
 
 ## Integration with Circle CI
 The project is integrated with Circle CI. Any check-in to github will run circle ci automatically.
@@ -94,11 +105,8 @@ User needs to type the Visit Date string in YYYY-MM-DD format (e.g. 2016-01-06).
 
 A better way is to use <a href="https://jqueryui.com/datepicker/" target="_blank">datepicker</a>.
 
-We can add search on website to know when a particular website have high hit rates.
+Also need to handle when excluded date till is empty.
+
+We can add website as search criteria to know when a particular website have high hit rates.
 
 Currently it is fixed to those top 5. We can make it dynamic for user to choose showing top 5 or top 10 for example.
-
-3. Cucumber Test
-
-The way for writting cucumber tests is shown in the feature file hitrate-report/src/test/resources/searchHitrate.feature.
-However, the actual implementation for each test steps are not done yet.
