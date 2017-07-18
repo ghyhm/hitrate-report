@@ -61,11 +61,21 @@ Note: Now the database URL is hardcoded in build.gradle. It needs to be configur
 
 <code>heroku war:deploy build/libs/hitrate-report-1.war --app marvelous-kings-canyon-80793</code>
 
+Note: 
+
+A better way is to simply do <code>git push heroku master</code> to deploy to Heroku.
+
+However, I met environment issue that the application is hanged if I do it in this way which I never met when deploying a Ruby on Rails web application. Thus, I now use a temporary solution to deploy with Heroku cli.
+
 ## Application on Heroku
 <a href="https://marvelous-kings-canyon-80793.herokuapp.com/hitrate-report" target="_blank">Hit Rate Report</a>
 
+Note: Since the actual logic validation is not implemented yet, you can type any user name and password to pass through the login page.
+
 ## Checkstyle for code analysis
 Checkstyle is used for static code analysis. This is to check coding standard.
+
+Run below command to check the code.
 
 <code>gradle check</code>
 
@@ -74,7 +84,7 @@ Cucumber is setup for BDD.
 
 Features are defined in src/test/resources.
 
-Run below command to executer the features.
+Run below command to execute the features.
 
 <code>gradle cucumber</code>
 
@@ -88,7 +98,7 @@ migration scripts. The test database will be setup before tests start and will b
 ## Integration with Circle CI
 The project is integrated with Circle CI. Any check-in to github will run circle ci automatically.
 
-We can define the task to run in circle CI, like running all cucumber tests or even add the command to deploy to Heroku.
+We can define the task to run in circle CI, like running all cucumber tests, running database migration scripts and even deploying to Heroku.
 
 <a href="https://circleci.com/gh/ghyhm/hitrate-report" target="_blank">Hit Rate Report Circle CI</a>
 
