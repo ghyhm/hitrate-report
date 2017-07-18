@@ -69,7 +69,10 @@ However, I met environment issue that the application is hanged if I do it in th
 ## Application on Heroku
 <a href="https://marvelous-kings-canyon-80793.herokuapp.com/hitrate-report" target="_blank">Hit Rate Report</a>
 
-Note: Since the actual login validation is not implemented yet, you can type any user name and password to pass through the login page.
+Note: 
+Since the actual login validation is not implemented yet, you can type any user name and password to pass through the login page.
+
+After entering the Hit Rate Report, please type visit date in the format YYYY-MM-DD for search.
 
 ## Checkstyle for code analysis
 Checkstyle is used for static code analysis. This is to check coding standard.
