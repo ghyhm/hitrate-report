@@ -1,4 +1,7 @@
 # hitrate-report
+## Purpose
+The purpose of this project is to show the top 5 websites with the highest hit rates on a particular date.
+
 ## Application configuration
 Application configuration files are defined in hitrate-report/src/main/resources/properties.
 
