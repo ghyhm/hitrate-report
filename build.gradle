@@ -4,18 +4,15 @@ buildscript {
 	}
     dependencies {
 	    classpath 'mysql:mysql-connector-java:5.1.31'
+	    classpath 'org.flywaydb:flyway-gradle-plugin:4.2.0'
     }
-}
-
-plugins {
-    id "org.flywaydb.flyway" version "4.2.0"
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'war'
 apply plugin: 'checkstyle'
-apply plugin: "org.flywaydb.flyway"
+apply plugin: 'org.flywaydb.flyway'
 archivesBaseName = 'hitrate-report'
 version = '1' 
 
