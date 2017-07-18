@@ -121,8 +121,8 @@ Also need to handle when excluded date till is empty.
 
 We can add website as search criteria to know when a particular website have high hit rates.
 
-Currently it is fixed to those top 5. We can make it dynamic for user to choose showing top 5 or top 10 for example.
+Currently it is fixed to show top 5. We can make it dynamic for user to choose showing top 5 or top 10 for example.
 
 3. Logging
 
-Logging mechanism needs to be set up to produce meaning and structured logs.
+Logging mechanism needs to be set up to produce meaningful and structured logs.
