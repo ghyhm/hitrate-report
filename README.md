@@ -20,15 +20,15 @@ Below is defined in build.gradle
 <code>
 
     buildscript {
-	repositories {
-	    mavenCentral()
-	}
-	dependencies {
-    	    classpath 'mysql:mysql-connector-java:5.1.31'
-    	}
+        repositories {
+            mavenCentral()
+        }
+        dependencies {
+            classpath 'mysql:mysql-connector-java:5.1.31'
+        }
     }
     plugins {
-	id "org.flywaydb.flyway" version "4.2.0"
+        id "org.flywaydb.flyway" version "4.2.0"
     }
     flyway {
         url = 'jdbc:mysql://localhost:3306/hitratereport'
