@@ -25,11 +25,10 @@ Below is defined in build.gradle
         }
         dependencies {
             classpath 'mysql:mysql-connector-java:5.1.31'
+            classpath 'org.flywaydb:flyway-gradle-plugin:4.2.0'
         }
     }
-    plugins {
-        id "org.flywaydb.flyway" version "4.2.0"
-    }
+    apply plugin: 'org.flywaydb.flyway'
     flyway {
         url = 'jdbc:mysql://localhost:3306/hitratereport'
         user = 'root'
