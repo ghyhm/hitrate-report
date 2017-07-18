@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Scenario: Search top 5 hit rate websites" tests="6" skipped="5" failures="0" errors="0" timestamp="2017-07-18T02:21:21" hostname="Mandys-MacBook-Pro.local" time="0.006">
+  <properties/>
+  <testcase name="Given I have login as below user" classname="Scenario: Search top 5 hit rate websites" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="And I have the following hit rate data" classname="Scenario: Search top 5 hit rate websites" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="And I have the following exclusion list" classname="Scenario: Search top 5 hit rate websites" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="When I search for hit rate on 2016-01-06" classname="Scenario: Search top 5 hit rate websites" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Then I should see the following hit rates" classname="Scenario: Search top 5 hit rate websites" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="classMethod" classname="Scenario: Search top 5 hit rate websites" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

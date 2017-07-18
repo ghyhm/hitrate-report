@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Scenario: Login with invalid user information" tests="4" skipped="3" failures="0" errors="0" timestamp="2017-07-18T02:21:21" hostname="Mandys-MacBook-Pro.local" time="0.005">
+  <properties/>
+  <testcase name="Given there are the following valid users" classname="Scenario: Login with invalid user information" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="When I login with below user" classname="Scenario: Login with invalid user information" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Then I cannot access Hit Rate report" classname="Scenario: Login with invalid user information" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="classMethod" classname="Scenario: Login with invalid user information" time="0.008"/>
+  <system-out><![CDATA[
+  Scenario: Login with valid user information ?[90m# login.feature:8?[0m
+    ?[36mWhen ?[0m?[36mI login with below user?[0m              ?[90m# LoginSteps.i_login_with_below_user(DataTable)?[0m
+    ?[36mThen ?[0m?[36mI should go to Hit Rate report?[0m       ?[90m# LoginSteps.i_should_go_to_Hit_Rate_report()?[0m
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

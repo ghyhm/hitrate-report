@@ -2,10 +2,19 @@ package cucumber;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = { "pretty",
-		"html:target/cucumber-html-report" }, glue = "cucumber.steps", features = "src/test/resources")
-public class TestRunner {
+@CucumberOptions(features = "src/test/resources/",
+				 plugin = { "pretty", "html: cucumber-html-reports", "json: cucumber-html-reports/cucumber.json" },
+				 glue = "cucumber.steps")
+public final class TestRunner {
+	private TestRunner() { }
+	
+	@BeforeClass
+    public static void preparaBase() {
+		System.setProperty("spring.profiles.active", "test");
+	}
 }
