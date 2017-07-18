@@ -8,6 +8,53 @@ When starting up server, it looks at the environment variable to determine which
 
 <code>-Dspring.profiles.active=dev</code>
 
+## Database
+MySQL is used in the application.
+
+There are 2 tables: hitrate and hitrate_tmp.
+The scripts are defined in src/main/resources/db/migration.
+
+I intended to use <a href="https://flywaydb.org/getstarted/firststeps/gradle">flywaydb</a>.
+
+Below is defined in build.gradle
+<code>
+buildscript {
+
+	repositories {
+  
+	    mavenCentral()
+      
+	}
+    dependencies {
+    
+	    classpath 'mysql:mysql-connector-java:5.1.31'
+      
+    }
+    
+}
+
+plugins {
+
+    id "org.flywaydb.flyway" version "4.2.0"
+    
+}
+
+flyway {
+
+    url = 'jdbc:mysql://localhost:3306/hitratereport'
+    
+    user = 'root'
+}
+</code>
+
+This helps to keep all database changes in a place.
+
+When there are new migrations, we can run below command to apply the changes to database.
+
+<code>gradle flywayMigrate -i 
+
+Note: Now the database URL is hardcoded in build.gradle. It needs to be configure to run for dev and prd environments.
+
 ## Deploy with Heroku Cli
 1. Install Heroku Cli
 
