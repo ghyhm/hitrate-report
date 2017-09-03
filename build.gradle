@@ -34,6 +34,9 @@ dependencies {
     testCompile 'info.cukes:cucumber-junit:1.2.5'
     testCompile 'junit:junit:4.12'
     testCompile 'org.seleniumhq.selenium:selenium-java:3.4.0'
+    testCompile 'xalan:xalan:2.7.2'
+    testCompile 'xalan:serializer:2.7.2'
+    testCompile 'br.com.six2six:fixture-factory:3.1.0'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat:1.5.4.RELEASE'    
 }
 
@@ -58,18 +61,59 @@ task stage() {
 
 stage.dependsOn(copyToLib)
 
+task dbMigrateDev {
+	doFirst {
+		flyway {
+		    url = 'jdbc:mysql://localhost:3306/hitratereport'
+		    user = 'root'
+		}
+	}
+	
+	doLast {
+		tasks.flywayMigrate.execute()
+	}
+}
+
+task dbMigratePrd {
+	doFirst {
+		flyway {
+		    url = 'jdbc:mysql://us-cdbr-iron-east-03.cleardb.net/heroku_5f297a3ec8aa0c9'
+		    user = 'b1c67d63499810'
+		    password = '5ce77e92'
+		}
+	}
+	
+	doLast {
+		tasks.flywayMigrate.execute()
+	}
+}
+
+task dbMigrateTest {
+	doFirst {
+		flyway {
+		    url = 'jdbc:mysql://localhost:3306/hitratereport_test'
+		    user = 'root'
+		}
+	}
+	
+	doLast {
+		tasks.flywayMigrate.execute()
+	}
+}
+
 task cucumber() {
     dependsOn assemble, compileTestJava
     doLast {
         javaexec {
             main = "cucumber.api.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--glue', 'gradle.cucumber', 'src/test/resources']
+            args = ['--plugin', 'pretty', 
+            		'--plugin', 'html:cucumber-html-reports', 
+            		'--plugin', 'json:cucumber-html-reports/cucumber.json', 
+            		'--glue', 'com.hitrate.cucumber.steps', 
+            		'src/test/resources/features']
         }
     }
 }
 
-flyway {
-    url = 'jdbc:mysql://localhost:3306/hitratereport'
-    user = 'root'
-}
+cucumber.dependsOn(dbMigrateTest)

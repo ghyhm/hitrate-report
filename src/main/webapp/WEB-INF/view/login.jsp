@@ -11,15 +11,15 @@
 			<table>
 				<tr>
 					<td>Username:</td>
-					<td><input type="text" name="name" ng-model="loginCtrl.user.name" /></td>
+					<td><input type="text" id="name" name="name" ng-model="loginCtrl.user.name" /></td>
 				</tr>
 				<tr>
 					<td>Password:</td>
-					<td><input type="text" name="password" ng-model="loginCtrl.user.password" /></td>
+					<td><input type="text" id="password" name="password" ng-model="loginCtrl.user.password" /></td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input type="submit" value="Login" />
+						<input type="submit" name="login" value="Login" />
 					</td>
 				</tr>
 			</table>
